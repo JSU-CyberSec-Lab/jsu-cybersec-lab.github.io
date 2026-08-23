@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 450" fill="none">
+  <g stroke="#88A8DD" stroke-width="2" opacity=".22">
+    <path d="M-52 344C88 86 342 18 594 142S1006 408 1264 234 1716 18 2106 158"/>
+    <path d="M-70 394C128 126 372 98 618 206S1016 452 1308 280 1758 74 2116 226" stroke-dasharray="10 14"/>
+    <path d="M84 82h442M166 34v326M54 210h574" opacity=".32"/>
+    <path d="M1410 44h530v328h-530zM1486 90v236M1584 90v236M1682 90v236M1780 90v236M1878 90v236M1450 128h450M1450 210h450M1450 292h450" opacity=".24"/>
+    <path d="M1436 312l92-76 84 34 118-126 104 58 96-96"/>
+    <path d="M102 266l76-68 84 38 92-104 98 46 118-92"/>
+  </g>
+  <g fill="#A4BCE5" opacity=".34">
+    <circle cx="178" cy="198" r="5"/><circle cx="262" cy="236" r="5"/><circle cx="354" cy="132" r="5"/><circle cx="452" cy="178" r="5"/><circle cx="570" cy="86" r="5"/>
+    <circle cx="1528" cy="236" r="5"/><circle cx="1612" cy="270" r="5"/><circle cx="1730" cy="144" r="5"/><circle cx="1834" cy="202" r="5"/><circle cx="1930" cy="106" r="5"/>
+  </g>
+  <g stroke="#789AD2" stroke-width="3" opacity=".2">
+    <rect x="690" y="80" width="106" height="88" rx="18"/>
+    <path d="M716 80V58c0-34 54-34 54 0v22M742 114v22"/>
+    <circle cx="742" cy="112" r="7"/>
+    <path d="M1196 120l60-36 60 36v72l-60 36-60-36zM1256 84v144M1196 120l120 72M1316 120l-120 72"/>
+  </g>
+  <g fill="#9AB4DF" font-family="Georgia, serif" opacity=".16">
+    <text x="60" y="72" font-size="28">f(x) = y</text>
+    <text x="472" y="332" font-size="26">Eₖ(m) → c</text>
+    <text x="878" y="84" font-size="24">Pr[A(x)=1]</text>
+    <text x="1068" y="362" font-size="28">H(m) = h</text>
+    <text x="1680" y="410" font-size="24">Dₖ(c) → m</text>
+  </g>
+</svg>

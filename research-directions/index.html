@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102a68">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/branding/jsu-favicon.png?v=20260823-cybersec-lab">
+    <title data-i18n="page-title-intro">研究方向 - 网络安全课题组</title>
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260823-i18n-v1">
+</head>
+
+<body>
+    <!-- 顶部欢迎栏 -->
+    <div class="topper">
+        <div class="top">
+            <div class="container">
+                <div class="welcome" data-i18n="welcome">欢迎访问吉首大学网络安全课题组</div>
+                <div class="top_tel">
+                    <span data-i18n="language">语言选择：</span>
+                    <a href="#" id="langZh" class="lang-switch active" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch" data-i18n="lang-en">English</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页眉导航 -->
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/branding/jishou-university-horizontal.png" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt">
+                        <span class="header-title" data-i18n="site-title">网络安全课题组</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="../index.html" data-i18n="nav-home">首页</a></li>
+                        <li class="on"><a href="../research-directions/index.html" data-i18n="nav-intro">研究方向</a></li>
+                        <li><a href="../research-results/index.html" data-i18n="nav-research">研究成果</a></li>
+                        <li><a href="../team/index.html" data-i18n="nav-team">团队成员</a></li>
+                        <li><a href="../join-us/index.html" data-i18n="nav-about">加入我们</a></li>
+                        <li><a href="../contact/index.html" data-i18n="nav-contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="model-navbtn" id="navBtn" aria-label="打开导航菜单" data-i18n-aria-label="open-navigation" aria-controls="leftNav" aria-expanded="false"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边导航（移动端） -->
+    <div class="opacity2" id="opacity2"></div>
+    <div class="model-leftnav" id="leftNav" aria-hidden="true">
+        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+        <div class="model-leftnav-main">
+            <ul class="nnav">
+                <li><a href="../index.html" class="ce" data-i18n="nav-home">首页</a></li>
+                <li><a href="../research-directions/index.html" class="ce" data-i18n="nav-intro">研究方向</a></li>
+                <li><a href="../research-results/index.html" class="ce" data-i18n="nav-research">研究成果</a></li>
+                <li><a href="../team/index.html" class="ce" data-i18n="nav-team">团队成员</a></li>
+                <li><a href="../join-us/index.html" class="ce" data-i18n="nav-about">加入我们</a></li>
+                <li><a href="../contact/index.html" class="ce" data-i18n="nav-contact">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <main class="page-content research-page">
+        <div class="container">
+            <section class="research-directions" aria-labelledby="core-directions-title">
+                <header class="research-section-heading">
+                    <div>
+                        <span class="section-kicker" data-i18n="research-focus-kicker">RESEARCH FOCUS</span>
+                        <h2 id="core-directions-title" data-i18n="core-directions-title">研究方向</h2>
+                    </div>
+                    <p data-i18n="intro-area-text1">课题组围绕身份认证、数据安全和分布式信息流控制三个方向开展研究。</p>
+                </header>
+                <div class="direction-grid" aria-label="研究方向" data-i18n-aria-label="directions-region-label">
+                    <article class="direction-card">
+                        <span class="direction-number">01</span>
+                        <h3 data-i18n="direction1-title">身份认证</h3>
+                        <p data-i18n="direction1-desc">面向物联网、车联网等场景，研究轻量级密码机制、博弈论以及动态信任评估在身份认证中的应用，并结合 BAN 逻辑、ProVerif 等工具对协议进行安全性分析，实现用户、设备与服务之间的可信身份确认、隐私保护与安全交互。</p>
+                        <div class="direction-tags"><span data-i18n="direction1-tag1">轻量级认证</span><span data-i18n="direction1-tag2">动态认证</span><span data-i18n="direction1-tag3">安全性分析</span></div>
+                    </article>
+                    <article class="direction-card">
+                        <span class="direction-number">02</span>
+                        <h3 data-i18n="direction2-title">数据安全</h3>
+                        <p data-i18n="direction2-desc">面向智能交通车辆编队、跨机构医疗联邦学习等跨域协作场景，研究门限密码、身份匹配加密、分布式密钥管理与可追溯审计等安全机制，重点解决数据隐私保护、细粒度访问控制与责任追踪问题，实现数据的安全共享与可信访问。</p>
+                        <div class="direction-tags"><span data-i18n="direction2-tag1">隐私保护</span><span data-i18n="direction2-tag2">匹配加密</span><span data-i18n="direction2-tag3">访问控制</span></div>
+                    </article>
+                    <article class="direction-card">
+                        <span class="direction-number">03</span>
+                        <h3 data-i18n="direction3-title">分布式信息流控制</h3>
+                        <p data-i18n="direction3-desc">面向云内与云间数据共享场景，研究分布式信息流控制、分层标签与动态标记机制，重点解决数据流动中的双向可控、自主共享、可追溯问责等问题，实现数据在云内与云间流转过程中的机密性、完整性与持续可控。</p>
+                        <div class="direction-tags"><span data-i18n="direction3-tag1">信息流控制</span><span data-i18n="direction3-tag2">双向可控</span><span data-i18n="direction3-tag3">追溯问责</span></div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="research-projects" aria-labelledby="research-projects-title">
+                <header class="research-section-heading project-section-heading">
+                    <div>
+                        <span class="section-kicker" data-i18n="research-projects-kicker">ONGOING PROJECTS</span>
+                        <h2 id="research-projects-title" data-i18n="research-projects-title">在研项目</h2>
+                    </div>
+                    <p data-i18n="research-projects-lead">由课题组负责人及团队成员为负责人立项的科研项目。</p>
+                </header>
+
+                <ol class="project-list">
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project2-program">湖南省自然科学基金青年学生基础研究项目</p>
+                            <h3 data-i18n="active-project2-name">基于密文策略属性加密的云数据安全访问控制技术研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2025-05">2025.05</time><span>—</span><time datetime="2026-12">2026.12</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project3-program">国家级大学生创新创业训练计划项目</p>
+                            <h3 data-i18n="active-project3-name">基于博弈论的车–边协同的双向安全认证技术研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2025-07">2025.07</time><span>—</span><time datetime="2027-06">2027.06</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project1-program">湖南省自然科学基金—青年C类</p>
+                            <h3 data-i18n="active-project1-name">基于分布式信息流控制的云数据双向可控自主共享技术研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2025-01">2025.01</time><span>—</span><time datetime="2027-12">2027.12</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project4-program">湖南省研究生科研创新项目</p>
+                            <h3 data-i18n="active-project4-name">基于博弈论的智能驾驶出租车服务匿名安全身份认证技术研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2026-01">2026.01</time><span>—</span><time datetime="2027-12">2027.12</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project5-program">湖南省大学生创新训练项目</p>
+                            <h3 data-i18n="active-project5-name">基于双多项式零化的无配对匹配加密数据共享技术研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2026-06">2026.06</time><span>—</span><time datetime="2028-05">2028.05</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status" data-i18n="project-status-active">在研</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="active-project6-program">湖南省大学生创新创业项目</p>
+                            <h3 data-i18n="active-project6-name">基于认证控制权可信迁移机制的安全相互身份认证协议研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2026-06">2026.06</time><span>—</span><time datetime="2028-05">2028.05</time></div>
+                    </li>
+                    <li class="project-item">
+                        <span class="project-status project-status-completed" data-i18n="project-status-completed">已结项</span>
+                        <div class="project-copy">
+                            <p class="project-program" data-i18n="completed-project1-program">湖南省大学生创新创业项目</p>
+                            <h3 data-i18n="completed-project1-name">基于大数据技术的高校音乐理论教学方式的优化研究</h3>
+                        </div>
+                        <div class="project-period"><time datetime="2024-07">2024.07</time><span>—</span><time datetime="2026-01">2026.01</time></div>
+                    </li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="container">
+            <div class="foot_left">
+                <div class="footer-row footer-links">
+                        <span class="footer-label" data-i18n="related-links">友情链接：</span>
+                        <ul class="ul-link1">
+                            <li><a href="https://www.jsu.edu.cn/" target="_blank" rel="noopener noreferrer" data-i18n="link-jsu">吉首大学</a></li>
+                            <li><a href="https://cse.jsu.edu.cn/" target="_blank" rel="noopener noreferrer" data-i18n="link-cse">吉首大学计算机科学与工程学院</a></li>
+                            <li><a href="https://www.xr-scholar.com/" target="_blank" rel="noopener noreferrer" data-i18n="link-xr">新锐期刊分区表</a></li>
+                        </ul>
+                </div>
+                <div class="footer-row copyright"><span class="footer-label" data-i18n="footer-copyright-label">版权：</span><span data-i18n="footer-copyright-text">Copyright © 吉首大学计算机科学与工程学院网络安全课题组</span></div>
+                <div class="footer-row contact"><span class="footer-label" data-i18n="footer-address-label">地址：</span><span data-i18n="footer-address-text">湖南吉首市人民南路120号，吉首大学第十二教学楼B区B609</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/i18n.js?v=20260823-i18n-v2"></script>
+    <script src="../assets/js/common.js?v=20260823-i18n-v1"></script>
+</body>
+
+</html>

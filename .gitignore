@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+
+# Local previews and editor files
+*.log
+*.tmp
+
+# Historical materials and backups are maintained locally and are not published
+archive/
+backups/
