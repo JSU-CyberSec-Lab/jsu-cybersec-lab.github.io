@@ -29,7 +29,9 @@
 
     function render() {
         slides.forEach((s, i) => {
-            s.classList.toggle('active', i === index);
+            const active = i === index;
+            s.classList.toggle('active', active);
+            s.setAttribute('aria-hidden', String(!active));
         });
         dots.forEach((d, i) => {
             d.classList.toggle('active', i === index);
@@ -69,6 +71,34 @@
         if (e.key === 'ArrowLeft') prev();
         if (e.key === 'ArrowRight') next();
     });
+
+    // 手机和平板支持横向滑动；纵向滚动仍交给浏览器处理。
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let trackingTouch = false;
+    slider.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1) {
+            trackingTouch = false;
+            return;
+        }
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        trackingTouch = true;
+    }, { passive: true });
+    slider.addEventListener('touchend', (event) => {
+        if (!trackingTouch) return;
+        trackingTouch = false;
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+        if (Math.abs(deltaX) < 44 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+        if (deltaX < 0) next();
+        else prev();
+    }, { passive: true });
+    slider.addEventListener('touchcancel', () => {
+        trackingTouch = false;
+    }, { passive: true });
 
     render();
     start();
@@ -160,41 +190,76 @@
 
     if (!navBtn || !leftNav) return;
 
-    const setMenuState = open => {
+    const t = key => window.i18n?.t(key) || key;
+    const isOpen = () => navBtn.getAttribute('aria-expanded') === 'true';
+    const focusableElements = () => Array.from(leftNav.querySelectorAll('a[href], button:not([disabled])'))
+        .filter(element => element.getClientRects().length > 0);
+
+    const updateButtonLabel = () => {
+        navBtn.setAttribute('aria-label', t(isOpen() ? 'close-navigation' : 'open-navigation'));
+    };
+
+    const setMenuState = (open, { restoreFocus = true } = {}) => {
         leftNav.classList.toggle('page-active', open);
         leftNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+        leftNav.toggleAttribute('inert', !open);
         navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        navBtn.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
         document.body.classList.toggle('nav-open', open);
         if (opacity2) opacity2.style.display = open ? 'block' : 'none';
+        updateButtonLabel();
 
         if (open) {
-            const firstLink = leftNav.querySelector('a');
-            if (firstLink) firstLink.focus();
-        } else {
+            focusableElements()[0]?.focus();
+        } else if (restoreFocus && navBtn.getClientRects().length > 0) {
             navBtn.focus();
         }
     };
 
     navBtn.addEventListener('click', () => {
-        setMenuState(navBtn.getAttribute('aria-expanded') !== 'true');
+        setMenuState(!isOpen());
     });
 
     if (opacity2) opacity2.addEventListener('click', () => setMenuState(false));
 
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && navBtn.getAttribute('aria-expanded') === 'true') {
+        if (event.key === 'Escape' && isOpen()) {
             setMenuState(false);
+            return;
         }
+
+        if (event.key === 'Tab' && isOpen()) {
+            const focusable = focusableElements();
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    document.addEventListener('i18n:change', updateButtonLabel);
+
+    const desktopQuery = window.matchMedia('(min-width: 1101px)');
+    desktopQuery.addEventListener('change', event => {
+        if (event.matches && isOpen()) setMenuState(false, { restoreFocus: false });
     });
     
     // 点击导航链接后关闭菜单
     const navLinks = document.querySelectorAll('.model-leftnav-main .nnav a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            setMenuState(false);
+            setMenuState(false, { restoreFocus: false });
         });
     });
+
+    leftNav.setAttribute('inert', '');
+    updateButtonLabel();
 })();
 
 // 返回顶部按钮
@@ -202,20 +267,24 @@
     const backToTop = document.getElementById('backToTop');
     if (!backToTop) return;
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTop.style.opacity = '1';
-            backToTop.style.pointerEvents = 'auto';
-        } else {
-            backToTop.style.opacity = '0';
-            backToTop.style.pointerEvents = 'none';
+    const updateVisibility = () => {
+        const visible = window.pageYOffset > 300;
+        backToTop.classList.toggle('is-visible', visible);
+        backToTop.setAttribute('aria-hidden', String(!visible));
+        backToTop.tabIndex = visible ? 0 : -1;
+
+        if (!visible && document.activeElement === backToTop) {
+            backToTop.blur();
         }
-    });
+    };
+
+    updateVisibility();
+    window.addEventListener('scroll', updateVisibility, { passive: true });
 
     backToTop.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
         });
     });
 })();
@@ -232,6 +301,9 @@
         const linkPath = normalizePath(new URL(link.href, window.location.href).pathname);
         if (linkPath === currentPath) {
             link.parentElement.classList.add('on');
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
         }
     });
 })();
@@ -246,7 +318,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             e.preventDefault();
             target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                 block: 'start'
             });
         }
@@ -434,9 +506,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 })();
 
-// 顶栏状态与首页成员计数
+// 顶栏滚动状态
 (function () {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const topper = document.querySelector('.topper');
     if (topper) {
         let scheduled = false;
@@ -453,46 +524,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }, { passive: true });
     }
 
-    const memberStats = document.querySelector('.members-module');
-    if (!memberStats) return;
-
-    const counters = Array.from(memberStats.querySelectorAll('.member-stat-copy strong')).map(strong => {
-        const numberNode = Array.from(strong.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
-        const target = numberNode ? Number.parseInt(numberNode.nodeValue, 10) : NaN;
-        return { numberNode, target };
-    }).filter(counter => counter.numberNode && Number.isFinite(counter.target));
-
-    const showFinalCounts = () => counters.forEach(counter => {
-        counter.numberNode.nodeValue = String(counter.target);
-    });
-
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-        showFinalCounts();
-        return;
-    }
-
-    counters.forEach(counter => {
-        counter.numberNode.nodeValue = '0';
-    });
-
-    const counterObserver = new IntersectionObserver(entries => {
-        if (!entries.some(entry => entry.isIntersecting)) return;
-        counterObserver.disconnect();
-
-        const start = performance.now();
-        const duration = 680;
-        const tick = now => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            counters.forEach(counter => {
-                counter.numberNode.nodeValue = String(Math.round(counter.target * eased));
-            });
-            if (progress < 1) window.requestAnimationFrame(tick);
-            else showFinalCounts();
-        };
-
-        window.requestAnimationFrame(tick);
-    }, { threshold: 0.45 });
-
-    counterObserver.observe(memberStats);
 })();

@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#102a68">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/branding/jsu-favicon.png?v=20260823-cybersec-lab">
     <title data-i18n="page-title-team">团队成员 - 网络安全课题组</title>
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260823-i18n-v1">
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260824-accessibility-v5">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
                 <div class="welcome" data-i18n="welcome">欢迎访问吉首大学网络安全课题组</div>
                 <div class="top_tel">
                     <span data-i18n="language">语言选择：</span>
-                    <a href="#" id="langZh" class="lang-switch active" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
-                    <a href="#" id="langEn" class="lang-switch" data-i18n="lang-en">English</a>
+                    <a href="#" id="langZh" class="lang-switch active" data-lang="zh" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch" data-lang="en" data-i18n="lang-en">English</a>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
             <div class="container">
                 <div class="logo">
                     <a href="../index.html">
-                        <img src="../assets/images/branding/jishou-university-horizontal.png" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt">
-                        <span class="header-title" data-i18n="site-title">网络安全课题组</span>
+                        <img src="../assets/images/branding/jishou-university-horizontal.webp" width="720" height="321" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt" decoding="async" fetchpriority="high">
+                        <span class="header-title"><span class="header-title-full" data-i18n="site-title">网络安全课题组</span><span class="header-title-compact" data-i18n="site-title-mobile">网络安全课题组</span></span>
                     </a>
                 </div>
                 <div class="nav">
@@ -50,9 +50,14 @@
 
     <!-- 侧边导航（移动端） -->
     <div class="opacity2" id="opacity2"></div>
-    <div class="model-leftnav" id="leftNav" aria-hidden="true">
-        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+    <div class="model-leftnav" id="leftNav" aria-hidden="true" inert>
+        <h2 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h2>
         <div class="model-leftnav-main">
+            <div class="mobile-language-switch" role="group" aria-label="语言选择" data-i18n-aria-label="language-selection-label">
+                <span class="mobile-language-label" data-i18n="language">语言选择：</span>
+                <button type="button" class="lang-switch active" data-lang="zh" data-i18n="lang-zh" aria-pressed="true">中文</button>
+                <button type="button" class="lang-switch" data-lang="en" data-i18n="lang-en" aria-pressed="false">English</button>
+            </div>
             <ul class="nnav">
                 <li><a href="../index.html" class="ce" data-i18n="nav-home">首页</a></li>
                 <li><a href="../research-directions/index.html" class="ce" data-i18n="nav-intro">研究方向</a></li>
@@ -65,17 +70,17 @@
     </div>
 
     <!-- 团队成员 -->
-    <div class="team-page">
+    <main class="team-page" id="main-content">
         <div class="container">
             <!-- 导师 -->
             <div class="team-section">
-                <h2 class="section-title" data-i18n="team-leader">课题组负责人</h2>
+                <h1 class="section-title" data-i18n="team-leader">课题组负责人</h1>
                 <div class="team-grid">
                     <div class="team-card teacher-card">
                         <div class="card-content">
                             <aside class="teacher-sidebar">
                                 <div class="member-photo">
-                                    <img src="../assets/images/team/profiles/teacher.png" alt="鲁金钿老师" data-i18n-alt="teacher-photo-alt">
+                                    <img src="../assets/images/team/profiles/teacher.webp" alt="鲁金钿老师" data-i18n-alt="teacher-photo-alt" decoding="async" fetchpriority="high">
                                 </div>
                                 <address class="member-contact">
                                     <span class="contact-icon" aria-hidden="true">✉</span>
@@ -87,7 +92,7 @@
                                 </address>
                             </aside>
                             <div class="member-info">
-                                <h3 class="member-name"><span class="name-en">Jintian Lu</span><span class="name-zh">鲁金钿</span></h3>
+                                <h2 class="member-name"><span class="name-en">Jintian Lu</span><span class="name-zh">鲁金钿</span></h2>
                                 <div class="member-title">
                                     <span data-i18n="teacher-title">硕士生导师｜数据科学与大数据技术系系主任</span>
                                 </div>
@@ -104,7 +109,7 @@
                                 </div>
 
                                 <section class="profile-detail">
-                                    <h4 data-i18n="teacher-education-title">教育经历</h4>
+                                    <h3 data-i18n="teacher-education-title">教育经历</h3>
                                     <ul class="profile-list">
                                         <li data-i18n="teacher-education1">2015年，中南民族大学计算机科学与技术专业，工学学士。</li>
                                         <li data-i18n="teacher-education2">2018年，中南民族大学信息安全专业，工学硕士。</li>
@@ -113,12 +118,12 @@
                                 </section>
 
                                 <section class="profile-detail">
-                                    <h4 data-i18n="teacher-directions-title">研究方向</h4>
+                                    <h3 data-i18n="teacher-directions-title">研究方向</h3>
                                     <p data-i18n="teacher-directions-text">云计算、边缘计算、数据安全及隐私保护、边云协同、分布式信息流控制、访问控制、形式化分析。</p>
                                 </section>
 
                                 <section class="profile-detail">
-                                    <h4 data-i18n="teacher-projects-title">科研项目</h4>
+                                    <h3 data-i18n="teacher-projects-title">科研项目</h3>
                                     <ol class="profile-list project-list">
                                         <li data-i18n="teacher-project1">湖南省自然科学基金—青年C类（原青年基金）项目：***云数据双向可控自主共享技术研究，编号：2025JJ***，主持。</li>
                                         <li data-i18n="teacher-project2">国家重点研发计划：新型******技术，编号：2018YFB1800***，参与。</li>
@@ -128,7 +133,7 @@
                                 </section>
 
                                 <section class="profile-detail representative-papers">
-                                    <h4 data-i18n="teacher-papers-title">代表论文</h4>
+                                    <h3 data-i18n="teacher-papers-title">代表论文</h3>
                                     <ol>
                                         <li><strong>Jintian Lu</strong>, Weilong Li, Jiakun Sun, Ruizhi Xiao, Bolin Liao. “<a href="https://ieeexplore.ieee.org/abstract/document/10250898" target="_blank" rel="noopener noreferrer">Secure and Real-Time Traceable Data Sharing in Cloud-Assisted IoT</a>”, <strong>IEEE Internet of Things Journal</strong>, 2024, 11(4): 6521–6536. <strong data-i18n="paper1-ranking">（中科院1区TOP，CCF C, IF=10.6）</strong></li>
                                         <li><strong>Jintian Lu</strong>, Jiakun Sun, Ruizhi Xiao, Shuyuan Jin. “<a href="https://doi.org/10.1016/j.cose.2022.102678" target="_blank" rel="noopener noreferrer">DIFCS: A Secure Cloud Data Sharing Approach Based on Decentralized Information Flow Control</a>”, <strong>Computers &amp; Security</strong>, 2022, 117. <strong data-i18n="paper2-ranking">（中科院2区，CCF B，IF=5.6）</strong></li>
@@ -150,13 +155,13 @@
                     <span class="roster-count"><strong>9</strong><span data-i18n="member-unit">人</span></span>
                 </div>
                 <div class="student-grid">
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/menglong-qi.jpg" alt="齐梦龙" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Menglong Qi</span><span class="name-zh">齐梦龙</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-game-theory">博弈论</span><span data-i18n="student-protocol-design">协议设计</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/qianxi-liu.jpg" alt="刘乾玺" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Qianxi Liu</span><span class="name-zh">刘乾玺</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-authentication">身份认证</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-shi"><img src="../assets/images/team/profiles/kai-shi.jpg" alt="石凯" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Kai Shi</span><span class="name-zh">石凯</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-pattern-recognition">模式识别</span><span data-i18n="student-computer-vision">计算机视觉</span><span data-i18n="student-liye-qin-slips">里耶秦简</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/peng-xiang.jpg" alt="向鹏" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Peng Xiang</span><span class="name-zh">向鹏</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-game-theory">博弈论</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/shuai-peng.jpg" alt="彭帅" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Shuai Peng</span><span class="name-zh">彭帅</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-cross-domain-authentication">跨域身份认证</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/xing-lu.jpg" alt="吕行" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Xing Lü</span><span class="name-zh">吕行</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-data-security">数据安全</span><span data-i18n="student-edge-cloud-collaboration">边云协同</span><span data-i18n="student-information-flow-control">信息流控制</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-focus"><img src="../assets/images/team/profiles/ziqi-wan.jpg" alt="万子琪" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Ziqi Wan</span><span class="name-zh">万子琪</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2026–</span></p><div class="student-tags"><span class="student-tag-placeholder" data-i18n="research-keywords-pending">研究方向关键词待补充</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/menglong-qi.webp" alt="齐梦龙" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Menglong Qi</span><span class="name-zh">齐梦龙</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-game-theory">博弈论</span><span data-i18n="student-protocol-design">协议设计</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/qianxi-liu.webp" alt="刘乾玺" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Qianxi Liu</span><span class="name-zh">刘乾玺</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-authentication">身份认证</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-shi"><img src="../assets/images/team/profiles/kai-shi.webp" alt="石凯" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Kai Shi</span><span class="name-zh">石凯</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-pattern-recognition">模式识别</span><span data-i18n="student-computer-vision">计算机视觉</span><span data-i18n="student-liye-qin-slips">里耶秦简</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/peng-xiang.webp" alt="向鹏" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Peng Xiang</span><span class="name-zh">向鹏</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-game-theory">博弈论</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/shuai-peng.webp" alt="彭帅" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Shuai Peng</span><span class="name-zh">彭帅</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-cross-domain-authentication">跨域身份认证</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/xing-lu.webp" alt="吕行" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Xing Lü</span><span class="name-zh">吕行</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2025–</span></p><div class="student-tags"><span data-i18n="student-data-security">数据安全</span><span data-i18n="student-edge-cloud-collaboration">边云协同</span><span data-i18n="student-information-flow-control">信息流控制</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-focus"><img src="../assets/images/team/profiles/ziqi-wan.webp" alt="万子琪" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Ziqi Wan</span><span class="name-zh">万子琪</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2026–</span></p><div class="student-tags"><span class="student-tag-placeholder" data-i18n="research-keywords-pending">研究方向关键词待补充</span></div></div></article>
                     <article class="student-card"><div class="student-avatar" aria-hidden="true"><span class="avatar-initials-en">JH</span><span class="avatar-initials-zh">胡</span></div><div class="student-card-body"><h3><span class="name-en">Jia Hu</span><span class="name-zh">胡珈</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2026–</span></p><div class="student-tags"><span class="student-tag-placeholder" data-i18n="research-keywords-pending">研究方向关键词待补充</span></div></div></article>
                     <article class="student-card"><div class="student-avatar" aria-hidden="true"><span class="avatar-initials-en">GS</span><span class="avatar-initials-zh">沈</span></div><div class="student-card-body"><h3><span class="name-en">Guang Shen</span><span class="name-zh">沈广</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-graduate">研究生</span><span class="student-period">2026–</span></p><div class="student-tags"><span class="student-tag-placeholder" data-i18n="research-keywords-pending">研究方向关键词待补充</span></div></div></article>
                 </div>
@@ -172,10 +177,10 @@
                     <span class="roster-count"><strong>4</strong><span data-i18n="member-unit">人</span></span>
                 </div>
                 <div class="student-grid">
-                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-luo"><img src="../assets/images/team/profiles/han-luo.jpg" alt="罗涵" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Han Luo</span><span class="name-zh">罗涵</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2023–</span></p><div class="student-tags"><span data-i18n="student-access-control">访问控制</span><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-information-forensics">信息取证</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/chang-liu.jpg" alt="刘嫦" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Chang Liu</span><span class="name-zh">刘嫦</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-data-security">数据安全</span><span data-i18n="student-matchmaking-encryption">匹配加密</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/jie-yang.jpg" alt="杨洁" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Jie Yang</span><span class="name-zh">杨洁</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-formal-analysis">形式化分析</span></div></div></article>
-                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-song"><img src="../assets/images/team/profiles/jie-song.jpg" alt="宋洁" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Jie Song</span><span class="name-zh">宋洁</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-matchmaking-encryption">匹配加密</span><span data-i18n="student-access-control">访问控制</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-luo"><img src="../assets/images/team/profiles/han-luo.webp" alt="罗涵" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Han Luo</span><span class="name-zh">罗涵</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2023–</span></p><div class="student-tags"><span data-i18n="student-access-control">访问控制</span><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-information-forensics">信息取证</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/chang-liu.webp" alt="刘嫦" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Chang Liu</span><span class="name-zh">刘嫦</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-data-security">数据安全</span><span data-i18n="student-matchmaking-encryption">匹配加密</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo"><img src="../assets/images/team/profiles/jie-yang.webp" alt="杨洁" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Jie Yang</span><span class="name-zh">杨洁</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-network-security">网络安全</span><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-formal-analysis">形式化分析</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-song"><img src="../assets/images/team/profiles/jie-song.webp" alt="宋洁" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Jie Song</span><span class="name-zh">宋洁</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2024–</span></p><div class="student-tags"><span data-i18n="student-cryptography">密码学</span><span data-i18n="student-matchmaking-encryption">匹配加密</span><span data-i18n="student-access-control">访问控制</span></div></div></article>
                 </div>
             </section>
 
@@ -189,12 +194,12 @@
                     <span class="roster-count"><strong>1</strong><span data-i18n="member-unit">人</span></span>
                 </div>
                 <div class="student-grid alumni-student-grid">
-                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-yu"><img src="../assets/images/team/profiles/chengzhi-yu.jpg" alt="余诚智" data-i18n-alt="member-photo-alt"></div><div class="student-card-body"><h3><span class="name-en">Chengzhi Yu</span><span class="name-zh">余诚智</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2022–2026</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-privacy-protection">隐私保护</span><span data-i18n="student-mqtt">MQTT</span></div></div></article>
+                    <article class="student-card"><div class="student-avatar student-avatar-photo student-avatar-photo-yu"><img src="../assets/images/team/profiles/chengzhi-yu.webp" alt="余诚智" data-i18n-alt="member-photo-alt" loading="lazy" decoding="async"></div><div class="student-card-body"><h3><span class="name-en">Chengzhi Yu</span><span class="name-zh">余诚智</span></h3><p class="student-role student-role-with-period"><span data-i18n="student-undergraduate">本科生</span><span class="student-period">2022–2026</span></p><div class="student-tags"><span data-i18n="student-authentication">身份认证</span><span data-i18n="student-privacy-protection">隐私保护</span><span data-i18n="student-mqtt">MQTT</span></div></div></article>
                 </div>
             </section>
             
         </div>
-    </div>
+    </main>
 
     <!-- 页脚 -->
     <div class="footer">
@@ -214,8 +219,8 @@
         </div>
     </div>
 
-    <script src="../assets/js/i18n.js?v=20260823-i18n-v2"></script>
-    <script src="../assets/js/common.js?v=20260823-i18n-v1"></script>
+  <script src="../assets/js/i18n.js?v=20260824-accessibility-v7"></script>
+    <script src="../assets/js/common.js?v=20260824-accessibility-v3"></script>
 </body>
 
 </html>

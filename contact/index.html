@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#102a68">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/branding/jsu-favicon.png?v=20260823-cybersec-lab">
     <title data-i18n="page-title-contact">联系我们 - 网络安全课题组</title>
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260823-i18n-v1">
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260824-accessibility-v5">
 </head>
 
 <body>
@@ -17,8 +17,8 @@
                 <div class="welcome" data-i18n="welcome">欢迎访问吉首大学网络安全课题组</div>
                 <div class="top_tel">
                     <span data-i18n="language">语言选择：</span>
-                    <a href="#" id="langZh" class="lang-switch active" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
-                    <a href="#" id="langEn" class="lang-switch" data-i18n="lang-en">English</a>
+                    <a href="#" id="langZh" class="lang-switch active" data-lang="zh" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch" data-lang="en" data-i18n="lang-en">English</a>
                 </div>
             </div>
         </div>
@@ -27,8 +27,8 @@
             <div class="container">
                 <div class="logo">
                     <a href="../index.html">
-                        <img src="../assets/images/branding/jishou-university-horizontal.png" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt">
-                        <span class="header-title" data-i18n="site-title">网络安全课题组</span>
+                        <img src="../assets/images/branding/jishou-university-horizontal.webp" width="720" height="321" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt" decoding="async" fetchpriority="high">
+                        <span class="header-title"><span class="header-title-full" data-i18n="site-title">网络安全课题组</span><span class="header-title-compact" data-i18n="site-title-mobile">网络安全课题组</span></span>
                     </a>
                 </div>
                 <div class="nav">
@@ -47,9 +47,14 @@
     </div>
 
     <div class="opacity2" id="opacity2"></div>
-    <div class="model-leftnav" id="leftNav" aria-hidden="true">
-        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+    <div class="model-leftnav" id="leftNav" aria-hidden="true" inert>
+        <h2 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h2>
         <div class="model-leftnav-main">
+            <div class="mobile-language-switch" role="group" aria-label="语言选择" data-i18n-aria-label="language-selection-label">
+                <span class="mobile-language-label" data-i18n="language">语言选择：</span>
+                <button type="button" class="lang-switch active" data-lang="zh" data-i18n="lang-zh" aria-pressed="true">中文</button>
+                <button type="button" class="lang-switch" data-lang="en" data-i18n="lang-en" aria-pressed="false">English</button>
+            </div>
             <ul class="nnav">
                 <li><a href="../index.html" class="ce" data-i18n="nav-home">首页</a></li>
                 <li><a href="../research-directions/index.html" class="ce" data-i18n="nav-intro">研究方向</a></li>
@@ -154,8 +159,8 @@
         </div>
     </div>
 
-    <script src="../assets/js/i18n.js?v=20260823-i18n-v2"></script>
-    <script src="../assets/js/common.js?v=20260823-i18n-v1"></script>
+  <script src="../assets/js/i18n.js?v=20260824-accessibility-v7"></script>
+    <script src="../assets/js/common.js?v=20260824-accessibility-v3"></script>
     <script src="../assets/js/amap-config.js"></script>
     <script src="../assets/js/contact-map.js?v=20260823-i18n-v1"></script>
 </body>

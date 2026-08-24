@@ -9,6 +9,7 @@ const i18n = {
             'lang-zh': '中文',
             'lang-en': 'English',
             'site-title': '网络安全课题组',
+            'site-title-mobile': '网络安全课题组',
             'page-title-home': '首页 - 网络安全课题组',
             'page-title-intro': '研究方向 - 网络安全课题组',
             'page-title-research': '研究成果 - 网络安全课题组',
@@ -17,6 +18,8 @@ const i18n = {
             'page-title-contact': '联系我们 - 网络安全课题组',
             'logo-alt': '吉首大学校徽与校名',
             'open-navigation': '打开导航菜单',
+            'close-navigation': '关闭导航菜单',
+            'language-selection-label': '语言选择',
             'previous-slide': '上一张',
             'next-slide': '下一张',
             'hero-carousel-label': '首页轮播图',
@@ -27,6 +30,7 @@ const i18n = {
             'hero-directions-alt': '课题组三个研究方向展示：身份认证、数据安全、分布式信息流控制',
             'home-intro-aside-label': '进一步了解课题组',
             'news-carousel-label': '课题组新闻动态',
+            'news-carousel-navigation-label': '新闻图片切换',
             'news-previous': '上一张新闻图片',
             'news-next': '下一张新闻图片',
             'news-go-to-slide': '查看第 {number} 张新闻图片',
@@ -82,7 +86,6 @@ const i18n = {
             'home-news-slide3-title': '线上论文研讨',
             'home-news-slide3-text': '通过线上会议持续开展论文分享与学术讨论。',
             'home-progress-title': '近期进展',
-            'view-all-progress': '查看全部',
             'progress-new-members-title': '欢迎万子琪、胡珈、沈广加入课题组！',
             'progress-new-members-desc': '欢迎2026级万子琪、胡珈、沈广同学入组攻读研究生！',
             'progress-publications-title': '课题组三篇 SCI 论文在中科院 2 区期刊成功出版',
@@ -252,9 +255,9 @@ const i18n = {
             'join-collaboration-note': '合作形式可包括联合研究、项目申报、学术交流、技术验证与成果转化。',
             'admissions-kicker': 'GRADUATE ADMISSIONS',
             'admissions-title': '招生专业',
-            'admissions-major1': '计算机科学与技术（学硕）',
-            'admissions-major2': '智能科学与技术（学硕）',
-            'admissions-major3': '电子信息（专硕）',
+            'admissions-major1': '计算机科学与技术',
+            'admissions-major2': '智能科学与技术',
+            'admissions-major3': '人工智能',
             'admissions-note': '招生具体名额根据学院下达招生指标确定。',
             'join-expectations-kicker': 'WHAT WE VALUE',
             'join-expectations-title': '我们希望你',
@@ -323,6 +326,7 @@ const i18n = {
             'lang-zh': 'Chinese',
             'lang-en': 'English',
             'site-title': 'Cybersecurity Research Group',
+            'site-title-mobile': 'CyberSec Lab',
             'page-title-home': 'Home - Cybersecurity Research Group',
             'page-title-intro': 'Research Directions - Cybersecurity Research Group',
             'page-title-research': 'Research Output - Cybersecurity Research Group',
@@ -331,6 +335,8 @@ const i18n = {
             'page-title-contact': 'Contact - Cybersecurity Research Group',
             'logo-alt': 'Jishou University emblem and wordmark',
             'open-navigation': 'Open navigation menu',
+            'close-navigation': 'Close navigation menu',
+            'language-selection-label': 'Language selection',
             'previous-slide': 'Previous slide',
             'next-slide': 'Next slide',
             'hero-carousel-label': 'Homepage carousel',
@@ -341,6 +347,7 @@ const i18n = {
             'hero-directions-alt': 'The group’s three research directions: authentication, data security, and distributed information-flow control',
             'home-intro-aside-label': 'Learn more about the group',
             'news-carousel-label': 'Group news carousel',
+            'news-carousel-navigation-label': 'Choose a news photo',
             'news-previous': 'Previous news photo',
             'news-next': 'Next news photo',
             'news-go-to-slide': 'View news photo {number}',
@@ -396,7 +403,6 @@ const i18n = {
             'home-news-slide3-title': 'Online Paper Discussions',
             'home-news-slide3-text': 'Sharing papers and conducting academic discussions online.',
             'home-progress-title': 'Recent Progress',
-            'view-all-progress': 'View All',
             'progress-new-members-title': 'Welcome Ziqi Wan, Jia Hu and Guang Shen to the Group!',
             'progress-new-members-desc': 'Welcome the Class of 2026 students Ziqi Wan, Jia Hu and Guang Shen as new graduate members of the group!',
             'progress-publications-title': 'Three Group Papers Published in CAS Q2 SCI Journals',
@@ -580,9 +586,9 @@ const i18n = {
             'join-collaboration-note': 'Collaboration may include joint research, project proposals, academic exchange, technical validation and knowledge transfer.',
             'admissions-kicker': 'GRADUATE ADMISSIONS',
             'admissions-title': 'Programs',
-            'admissions-major1': 'Computer Science and Technology (Academic Master’s)',
-            'admissions-major2': 'Intelligent Science and Technology (Academic Master’s)',
-            'admissions-major3': 'Electronic Information (Professional Master’s)',
+            'admissions-major1': 'Computer Science and Technology',
+            'admissions-major2': 'Intelligent Science and Technology',
+            'admissions-major3': 'Artificial Intelligence',
             'admissions-note': 'The number of available places is subject to the enrollment quota allocated by the school.',
             'join-expectations-kicker': 'WHAT WE VALUE',
             'join-expectations-title': 'What We Look For',
@@ -696,14 +702,13 @@ const i18n = {
         applyAttribute('[data-i18n-aria-label]', 'aria-label', 'i18nOriginalAriaLabel');
         
         // 更新语言切换按钮状态
-        document.querySelectorAll('.lang-switch').forEach(btn => {
-            btn.classList.remove('active');
+        document.querySelectorAll('[data-lang]').forEach(control => {
+            const active = control.dataset.lang === this.currentLang;
+            control.classList.toggle('active', active);
+            if (control.tagName === 'BUTTON') {
+                control.setAttribute('aria-pressed', String(active));
+            }
         });
-        if (this.currentLang === 'zh') {
-            document.getElementById('langZh')?.classList.add('active');
-        } else {
-            document.getElementById('langEn')?.classList.add('active');
-        }
         document.dispatchEvent(new CustomEvent('i18n:change', { detail: { lang: this.currentLang } }));
     },
 
@@ -715,18 +720,15 @@ const i18n = {
     bindEvents: function() {
         const self = this;
         
-        document.getElementById('langZh')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            self.currentLang = 'zh';
-            localStorage.setItem('lang', 'zh');
-            self.applyLanguage();
-        });
-        
-        document.getElementById('langEn')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            self.currentLang = 'en';
-            localStorage.setItem('lang', 'en');
-            self.applyLanguage();
+        document.querySelectorAll('[data-lang]').forEach(control => {
+            control.addEventListener('click', function(e) {
+                e.preventDefault();
+                const nextLang = this.dataset.lang;
+                if (!self.translations[nextLang]) return;
+                self.currentLang = nextLang;
+                localStorage.setItem('lang', nextLang);
+                self.applyLanguage();
+            });
         });
     }
 };

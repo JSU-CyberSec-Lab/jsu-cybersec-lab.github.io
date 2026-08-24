@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#102a68">
     <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/branding/jsu-favicon.png?v=20260823-cybersec-lab">
     <title data-i18n="page-title-intro">研究方向 - 网络安全课题组</title>
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260823-i18n-v1">
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260824-accessibility-v5">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
                 <div class="welcome" data-i18n="welcome">欢迎访问吉首大学网络安全课题组</div>
                 <div class="top_tel">
                     <span data-i18n="language">语言选择：</span>
-                    <a href="#" id="langZh" class="lang-switch active" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
-                    <a href="#" id="langEn" class="lang-switch" data-i18n="lang-en">English</a>
+                    <a href="#" id="langZh" class="lang-switch active" data-lang="zh" data-i18n="lang-zh">中文</a>&nbsp;|&nbsp;
+                    <a href="#" id="langEn" class="lang-switch" data-lang="en" data-i18n="lang-en">English</a>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
             <div class="container">
                 <div class="logo">
                     <a href="../index.html">
-                        <img src="../assets/images/branding/jishou-university-horizontal.png" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt">
-                        <span class="header-title" data-i18n="site-title">网络安全课题组</span>
+                        <img src="../assets/images/branding/jishou-university-horizontal.webp" width="720" height="321" alt="吉首大学校徽与校名" data-i18n-alt="logo-alt" decoding="async" fetchpriority="high">
+                        <span class="header-title"><span class="header-title-full" data-i18n="site-title">网络安全课题组</span><span class="header-title-compact" data-i18n="site-title-mobile">网络安全课题组</span></span>
                     </a>
                 </div>
                 <div class="nav">
@@ -50,9 +50,14 @@
 
     <!-- 侧边导航（移动端） -->
     <div class="opacity2" id="opacity2"></div>
-    <div class="model-leftnav" id="leftNav" aria-hidden="true">
-        <h1 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h1>
+    <div class="model-leftnav" id="leftNav" aria-hidden="true" inert>
+        <h2 class="model-leftnav-top"><span data-i18n="nav-menu">导航菜单</span></h2>
         <div class="model-leftnav-main">
+            <div class="mobile-language-switch" role="group" aria-label="语言选择" data-i18n-aria-label="language-selection-label">
+                <span class="mobile-language-label" data-i18n="language">语言选择：</span>
+                <button type="button" class="lang-switch active" data-lang="zh" data-i18n="lang-zh" aria-pressed="true">中文</button>
+                <button type="button" class="lang-switch" data-lang="en" data-i18n="lang-en" aria-pressed="false">English</button>
+            </div>
             <ul class="nnav">
                 <li><a href="../index.html" class="ce" data-i18n="nav-home">首页</a></li>
                 <li><a href="../research-directions/index.html" class="ce" data-i18n="nav-intro">研究方向</a></li>
@@ -71,26 +76,26 @@
                 <header class="research-section-heading">
                     <div>
                         <span class="section-kicker" data-i18n="research-focus-kicker">RESEARCH FOCUS</span>
-                        <h2 id="core-directions-title" data-i18n="core-directions-title">研究方向</h2>
+                        <h1 id="core-directions-title" data-i18n="core-directions-title">研究方向</h1>
                     </div>
                     <p data-i18n="intro-area-text1">课题组围绕身份认证、数据安全和分布式信息流控制三个方向开展研究。</p>
                 </header>
                 <div class="direction-grid" aria-label="研究方向" data-i18n-aria-label="directions-region-label">
                     <article class="direction-card">
                         <span class="direction-number">01</span>
-                        <h3 data-i18n="direction1-title">身份认证</h3>
+                        <h2 data-i18n="direction1-title">身份认证</h2>
                         <p data-i18n="direction1-desc">面向物联网、车联网等场景，研究轻量级密码机制、博弈论以及动态信任评估在身份认证中的应用，并结合 BAN 逻辑、ProVerif 等工具对协议进行安全性分析，实现用户、设备与服务之间的可信身份确认、隐私保护与安全交互。</p>
                         <div class="direction-tags"><span data-i18n="direction1-tag1">轻量级认证</span><span data-i18n="direction1-tag2">动态认证</span><span data-i18n="direction1-tag3">安全性分析</span></div>
                     </article>
                     <article class="direction-card">
                         <span class="direction-number">02</span>
-                        <h3 data-i18n="direction2-title">数据安全</h3>
+                        <h2 data-i18n="direction2-title">数据安全</h2>
                         <p data-i18n="direction2-desc">面向智能交通车辆编队、跨机构医疗联邦学习等跨域协作场景，研究门限密码、身份匹配加密、分布式密钥管理与可追溯审计等安全机制，重点解决数据隐私保护、细粒度访问控制与责任追踪问题，实现数据的安全共享与可信访问。</p>
                         <div class="direction-tags"><span data-i18n="direction2-tag1">隐私保护</span><span data-i18n="direction2-tag2">匹配加密</span><span data-i18n="direction2-tag3">访问控制</span></div>
                     </article>
                     <article class="direction-card">
                         <span class="direction-number">03</span>
-                        <h3 data-i18n="direction3-title">分布式信息流控制</h3>
+                        <h2 data-i18n="direction3-title">分布式信息流控制</h2>
                         <p data-i18n="direction3-desc">面向云内与云间数据共享场景，研究分布式信息流控制、分层标签与动态标记机制，重点解决数据流动中的双向可控、自主共享、可追溯问责等问题，实现数据在云内与云间流转过程中的机密性、完整性与持续可控。</p>
                         <div class="direction-tags"><span data-i18n="direction3-tag1">信息流控制</span><span data-i18n="direction3-tag2">双向可控</span><span data-i18n="direction3-tag3">追溯问责</span></div>
                     </article>
@@ -186,8 +191,8 @@
         </div>
     </div>
 
-    <script src="../assets/js/i18n.js?v=20260823-i18n-v2"></script>
-    <script src="../assets/js/common.js?v=20260823-i18n-v1"></script>
+  <script src="../assets/js/i18n.js?v=20260824-accessibility-v7"></script>
+    <script src="../assets/js/common.js?v=20260824-accessibility-v3"></script>
 </body>
 
 </html>
