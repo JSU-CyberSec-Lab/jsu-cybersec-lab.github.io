@@ -7,14 +7,14 @@
             fallback: 'Use “View on Map” below to open Amap.',
             markerTitle: 'Teaching Building 12, Room B609, Jishou University',
             building: 'Teaching Building 12, Jishou University',
-            group: 'Cybersecurity Research Group · B609'
+            group: 'Cybersecurity Research Lab · B609'
         }
         : {
             unavailable: '地图暂时无法加载',
             fallback: '请通过下方“在地图中查看”打开高德地图。',
             markerTitle: '吉首大学第十二教学楼 B609',
             building: '吉首大学第十二教学楼',
-            group: '网络安全课题组 · B609'
+            group: '网络与信息安全课题组 · B609'
         };
 
     let marker;
