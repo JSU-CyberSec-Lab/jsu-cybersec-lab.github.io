@@ -68,7 +68,6 @@ python3 -m http.server 8765
 1. 将根目录的 `index.html` 作为首页；
 2. 支持目录默认文档 `index.html`；
 3. 保留当前目录层级与文件名大小写；
-4. 使用 UTF-8 和 HTTPS 提供页面。
 
 ## 归档与备份
 
